@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatic Image Slideshow</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f3f3f3;
+    }
+    .slideshow-container {
+      position: relative;
+      max-width: 600px;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .slides {
+      display: none;
+      width: 100%;
+    }
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <img src="c:\Users\ELCOT\Downloads\pexels-enginakyurt-1579253.jpg" alt="Image 1" class="slides active">
+    <img src="c:\Users\ELCOT\Downloads\pexels-thorsten-technoman-109353-338504.jpg" alt="Image 2" class="slides">
+    <img src="c:\Users\ELCOT\Downloads\pexels-pixabay-271624.jpg" alt="Image 3" class="slides">
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slides");
+
+    function showNextSlide() {
+      // Hide the current slide
+      slides[currentSlide].classList.remove("active");
+
+      // Move to the next slide
+      currentSlide = (currentSlide + 1) % slides.length;
+
+      // Show the next slide
+      slides[currentSlide].classList.add("active");
+    }
+
+    // Change the slide every 3 seconds
+    setInterval(showNextSlide, 3000);
+  </script>
+</body>
+</html>
